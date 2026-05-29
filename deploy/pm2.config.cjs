@@ -1,0 +1,30 @@
+module.exports = {
+  apps: [{
+    name: 'open-design',
+    cwd: '/opt/open-design',
+    script: '/home/ubuntu/.nvm/versions/node/v24.16.0/bin/node',
+    args: 'apps/daemon/dist/cli.js --no-open',
+    interpreter: 'none',
+    env: {
+      NODE_ENV: 'production',
+      OD_BIND_HOST: '0.0.0.0',
+      OD_PORT: '7456',
+      OD_WEB_PORT: '7456',
+      OD_API_TOKEN: '2fa105ac972b5cc865e780e54531e3188a35c0f2b4a0c096205738f6d5df4cad',
+      OD_ALLOWED_ORIGINS: 'http://43.167.237.50,https://43.167.237.50,http://localhost:7456',
+      NODE_OPTIONS: '--max-old-space-size=384',
+    },
+    instances: 1,
+    exec_mode: 'fork',
+    max_memory_restart: '512M',
+    error_file: '/opt/open-design/logs/error.log',
+    out_file: '/opt/open-design/logs/out.log',
+    log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+    merge_logs: true,
+    pid_file: '/opt/open-design/pids/app.pid',
+    watch: false,
+    max_restarts: 10,
+    restart_delay: 5000,
+    kill_timeout: 10000,
+  }]
+};
